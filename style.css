@@ -178,27 +178,34 @@ body {
   color: var(--primary-color);
 }
 
-/* Responsividade para telas menores/mobile */
-@media (max-width: 768px) {
-  .galeria-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
-  }
-}
-
-@media (max-width: 480px) {
-  .galeria-grid {
-    grid-template-columns: 1fr; /* 1 coluna no celular */
-  }
-  
-  .foto-destaque {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-}
-
-/*foto larga*/
 .foto-larga {
   grid-column: span 2; 
   height: 100%;
   aspect-ratio: 2 / 1; /* Mantém a proporção de 2:1 */
+}
+
+/* Responsividade para telas menores/mobile */
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+  }
+}
+
+/* Celulares e telas pequenas */
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+    gap: 12px;
+  }
+
+  .foto-destaque, .foto-larga {
+    grid-column: span 1; 
+    grid-row: span 1;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
 }
